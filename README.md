@@ -1,6 +1,6 @@
 # blog_app
 
-A new Flutter project.
+An alarm app with flutter for android.
 
 ## Getting Started
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:one_clock/one_clock.dart';
 import 'package:provider/provider.dart';
+import 'package:uuid/uuid.dart';
 
 class AlarmPage extends StatefulWidget {
   @override
@@ -66,10 +67,9 @@ class _AlarmPage extends State<AlarmPage> {
                 tooltip: 'Add a new alarm',
                 onPressed: () {
                   count += 1;
-                  setState(() {
-                    appState.addNewAlarm(
-                        RingManaging(ring: Ring("time", "des $count")));
-                  });
+
+                  appState.addNewAlarm(
+                      RingManaging(ring: Ring("time", "des $count")));
                 },
                 icon: Icon(Icons.add),
               ),
@@ -92,20 +92,20 @@ class MyNotifierState extends ChangeNotifier {
   var alarms = <RingManaging>[];
   void addNewAlarm(RingManaging ring) {
     alarms.add(ring);
+
     notifyListeners();
-    int i = alarms.length;
-    print(i);
   }
 
-  void removeAlarm() {
-    alarms.removeAt(0);
+  void removeAlarm(String id) {
+    alarms.removeWhere((item) => item.id == id);
     notifyListeners();
   }
 }
 
 class RingManaging extends StatefulWidget {
   final Ring ring;
-  const RingManaging({super.key, required this.ring});
+  final String id = Uuid().v4();
+  RingManaging({super.key, required this.ring});
   @override
   State<RingManaging> createState() => _RingManagement();
 }
@@ -121,8 +121,7 @@ class _RingManagement extends State<RingManaging> {
         isThreeLine: false,
         dense: false,
         onLongPress: () {
-          appState.alarms.removeAt(0);
-          print('Do you want to remove?');
+          appState.removeAlarm(widget.id);
         },
         onTap: () {},
         leading: IconButton(onPressed: () {}, icon: Icon(Icons.alarm_on)),
