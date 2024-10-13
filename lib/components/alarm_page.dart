@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:one_clock/one_clock.dart';
 import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
+import 'AlarmPage/alarm_setter.dart';
 
 class AlarmPage extends StatefulWidget {
   @override
@@ -68,8 +69,10 @@ class _AlarmPage extends State<AlarmPage> {
                 onPressed: () {
                   count += 1;
 
-                  appState.addNewAlarm(
-                      RingManaging(ring: Ring("time", "des $count")));
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => AlarmSetter()),
+                  );
                 },
                 icon: Icon(Icons.add),
               ),
