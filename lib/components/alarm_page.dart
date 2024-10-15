@@ -68,7 +68,7 @@ class _AlarmPage extends State<AlarmPage> {
                 tooltip: 'Add a new alarm',
                 onPressed: () {
                   count += 1;
-
+                  
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => AlarmSetter()),
