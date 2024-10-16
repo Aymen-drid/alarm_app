@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => MyNotifierState(),
-      child: MaterialApp(         
-        title: 'Timer app',
+      child: MaterialApp(
+        title: 'Timer app newwww',
         theme: ThemeData(
           fontFamily: 'Lato',
           useMaterial3: true,
