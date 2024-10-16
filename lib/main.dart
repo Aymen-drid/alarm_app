@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => MyNotifierState(),
-      child: MaterialApp(
+      child: MaterialApp(         
         title: 'Timer app',
         theme: ThemeData(
           fontFamily: 'Lato',
