@@ -30,42 +30,6 @@ class _AlarmSetter extends State<AlarmSetter> {
               );
             },
           ),
-          ListTile(
-            title: Text('Calendar Multi 2'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => TableMultiExample()),
-              );
-            },
-          ),
-          ListTile(
-            title: Text('Calendar Range 3'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => TableRangeExample()),
-              );
-            },
-          ),
-          ListTile(
-            title: Text('Calendar Events 4'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => TableEventsExample()),
-              );
-            },
-          ),
-          ListTile(
-            title: Text('Calendar Complex 5'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => TableComplexExample()),
-              );
-            },
-          ),
         ]));
   }
 }

@@ -15,7 +15,7 @@ class _TableBasicsExampleState extends State<TableBasicsExample> {
   CalendarFormat _calendarFormat = CalendarFormat.month;
   DateTime _focusedDay = DateTime.now();
   DateTime? _selectedDay;
-
+  TimeOfDay? _selectedTime;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,6 +43,7 @@ class _TableBasicsExampleState extends State<TableBasicsExample> {
               _focusedDay = focusedDay;
             });
           }
+          _pickTime(context, selectedDay);
         },
         onFormatChanged: (format) {
           if (_calendarFormat != format) {
@@ -58,5 +59,18 @@ class _TableBasicsExampleState extends State<TableBasicsExample> {
         },
       ),
     );
+  }
+
+  Future<void> _pickTime(BuildContext context, DateTime selectedDay) async {
+    final TimeOfDay? pickedTime = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay.now(),
+    );
+
+    if (pickedTime != null) {
+      setState(() {
+        _selectedTime = pickedTime;
+      });
+    }
   }
 }
